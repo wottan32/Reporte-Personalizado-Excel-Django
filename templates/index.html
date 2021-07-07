@@ -8,32 +8,62 @@
 </head>
 <body>
     {% if queryset %}
-        <table border="2">
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+
+            @media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}</style>
+            <div class="tg-wrap"><table id="tg-IpydA" class="tg">
             <thead>
                 <tr>
-                    <th>Nombres</th>
-                    <th>Apellidos</th>
-                    <th>Direccion</th>
-                    <th>Edad</th>
+                    <th>Id</th>
+                    <th>Empresa Id</th>
+                    <th>Nombre</th>
+                    <th>Razon Social</th>
+                    <th>rut</th>
+                    <th>plazo pago</th>
+                    <th>oc</th>
+                    <th>giro</th>
+                    <th>contacto factura</th>
+                    <th>Direccion legal</th>
+                    <th>Comuna legal</th>
+                    <th>Contactos</th>
+                    <th>Fecha Creacion</th>
+                    <th>Fecha Modificacion</th>
                 </tr>
             </thead>
+            </table></div>
             <tbody>
                 {% for q in queryset %}
                     <tr>
+                        <td>{{ q.id }}</td>
+                        <td>{{ q.empresa_id }}</td>
                         <td>{{ q.nombre }}</td>
-                        <td>{{ q.apellidos }}</td>
-                        <td>{{ q.direccion }}</td>
-                        <td>{{ q.edad }}</td>
+                        <td>{{ q.razon_social }}</td>
+                        <td>{{ q.rut }}</td>
+                        <td>{{ q.plazo_pago }}</td>
+                        <td>{{ q.oc }}</td>
+                        <td>{{ q.giro }}</td>
+                        <td>{{ q.contacto_factura }}</td>
+                        <td>{{ q.direccion_legal }}</td>
+                        <td>{{ q.comuna_legal }}</td>
+                        <td>{{ q.contactos }}</td>
+                        <td>{{ q.created }}</td>
+                        <td>{{ q.modified }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
-        </table>
 
     {% else %}
         <h1>No hay datos registrados</h1>
     {% endif %}
     <form action="{% url 'reporte' %}" method="get">
-        <input type="text" name="campo" placeholder="Ingrese una edad">
+        <label>
+            <input type=number name="campo" placeholder="Ingresar">
+        </label>
         <button type="submit">REPORTE EN EXCEL</button>
     </form>
 </body>

@@ -1,4 +1,4 @@
-Django==2.0.6
+Django~=3.1.2
 et-xmlfile==1.0.1
 Faker==0.8.16
 jdcal==1.4
@@ -8,3 +8,5 @@ python-dateutil==2.7.3
 pytz==2018.5
 six==1.11.0
 text-unidecode==1.2
+
+djangorestframework~=3.12.2
